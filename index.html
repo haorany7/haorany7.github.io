@@ -104,9 +104,21 @@
     .paper-desc { margin: 0; font-size: 14.5px; color: var(--muted); }
 
     /* ---------- experience ---------- */
-    .exp { display: flex; justify-content: space-between; gap: 16px; margin: 10px 0; }
-    .exp .what { font-weight: 600; }
-    .exp .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .org { display: flex; align-items: center; gap: 24px; padding: 14px 0; }
+    .org + .org { border-top: 1px dashed var(--border); }
+    .org-logo {
+      width: 96px; height: 64px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .org-logo img { max-width: 96px; max-height: 64px; }
+    .org-logo.wide img { max-height: 30px; }
+    @media (prefers-color-scheme: dark) {
+      .org-logo img { background: #fff; border-radius: 8px; padding: 4px; }
+    }
+    .org-name { font-weight: 600; font-size: 16px; }
+    .org-role { margin-top: 1px; }
+    .org-meta { color: var(--muted); font-size: 14px; }
+    .org-meta .when { font-variant-numeric: tabular-nums; }
 
     footer { margin-top: 56px; color: var(--muted); font-size: 13px; text-align: center; }
 
@@ -117,7 +129,9 @@
       .avatar { width: 150px; height: 150px; }
       .paper { flex-direction: column; gap: 12px; }
       .thumb { width: 100%; }
-      .exp { flex-direction: column; gap: 0; }
+      .org { gap: 16px; }
+      .org-logo { width: 64px; }
+      .org-logo img { max-width: 64px; }
     }
   </style>
 </head>
@@ -222,29 +236,66 @@
 
   <!-- ================= EXPERIENCE ================= -->
   <h2>Experience</h2>
-  <div class="exp">
-    <div><span class="what">Snowflake</span> — Software Engineering Intern, Menlo Park, CA<br>
-      <span class="note">Built a predictive autoscaler for GS clusters (14.3% MAPE on 24-hour CPU forecasts, average CPU utilization up by more than 20%).</span></div>
-    <div class="when">May – Aug 2025</div>
+
+  <div class="org">
+    <div class="org-logo"><img src="images/logos/berkeley.svg" alt="UC Berkeley"></div>
+    <div>
+      <div class="org-name"><a href="https://bair.berkeley.edu/">Berkeley AI Research (BAIR)</a>, UC Berkeley</div>
+      <div class="org-role">Visiting Student Researcher</div>
+      <div class="org-meta">Berkeley, CA · Advisors: <a href="https://zhanwei.site/">Wei Zhan</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a></div>
+    </div>
+  </div>
+
+  <div class="org">
+    <div class="org-logo"><img src="images/logos/ucsd.svg" alt="UC San Diego"></div>
+    <div>
+      <div class="org-name"><a href="https://haoailab.com/">Hao AI Lab</a>, UC San Diego</div>
+      <div class="org-role">Research Collaborator</div>
+      <div class="org-meta">San Diego, CA · Advisor: <a href="https://haozhang.ai/">Hao Zhang</a></div>
+    </div>
+  </div>
+
+  <div class="org">
+    <div class="org-logo"><img src="images/logos/uiuc.svg" alt="UIUC"></div>
+    <div>
+      <div class="org-name"><a href="https://plan-lab.github.io/">PLAN Lab</a>, University of Illinois Urbana-Champaign</div>
+      <div class="org-role">Graduate Researcher</div>
+      <div class="org-meta">Urbana, IL · Advisor: <a href="https://isminoula.github.io/">Ismini Lourentzou</a></div>
+    </div>
+  </div>
+
+  <div class="org">
+    <div class="org-logo wide"><img src="images/logos/snowflake.svg" alt="Snowflake"></div>
+    <div>
+      <div class="org-name"><a href="https://www.snowflake.com/">Snowflake</a></div>
+      <div class="org-role">Software Engineering Intern</div>
+      <div class="org-meta"><span class="when">2025.05 ~ 2025.08</span> · Menlo Park, CA · Predictive autoscaling for GS clusters</div>
+    </div>
   </div>
 
   <!-- ================= EDUCATION ================= -->
   <h2>Education</h2>
-  <div class="exp">
-    <div><span class="what">University of Illinois Urbana-Champaign</span> — Ph.D. in Computer Engineering</div>
-    <div class="when">2026 – present</div>
+
+  <div class="org">
+    <div class="org-logo"><img src="images/logos/uiuc.svg" alt="UIUC"></div>
+    <div>
+      <div class="org-name">University of Illinois Urbana-Champaign</div>
+      <div class="org-role">Ph.D. in Computer Engineering</div>
+      <div class="org-meta"><span class="when">2026.08 ~ present</span></div>
+      <div class="org-role">M.S. in Computer Engineering</div>
+      <div class="org-meta"><span class="when">2024.09 ~ 2026.05</span></div>
+      <div class="org-role">B.S. in Electrical Engineering, Minor in Computer Science</div>
+      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span> · GPA 3.83/4.0</div>
+    </div>
   </div>
-  <div class="exp">
-    <div><span class="what">University of Illinois Urbana-Champaign</span> — M.S. in Computer Engineering</div>
-    <div class="when">2024 – 2026</div>
-  </div>
-  <div class="exp">
-    <div><span class="what">University of Illinois Urbana-Champaign</span> — B.S. in Electrical Engineering, Minor in CS</div>
-    <div class="when">2020 – 2024</div>
-  </div>
-  <div class="exp">
-    <div><span class="what">Zhejiang University</span> — B.Eng. in Computer Engineering</div>
-    <div class="when">2020 – 2024</div>
+
+  <div class="org">
+    <div class="org-logo"><img src="images/logos/zju.svg" alt="Zhejiang University"></div>
+    <div>
+      <div class="org-name">Zhejiang University</div>
+      <div class="org-role">B.Eng. in Computer Engineering (ZJU-UIUC dual degree)</div>
+      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span> · Hangzhou, China · GPA 3.96/4.0</div>
+    </div>
   </div>
 
   <footer>Last updated October 2026</footer>
