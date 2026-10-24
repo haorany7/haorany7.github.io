@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haoran (Jensen) Yuan</title>
+  <meta name="description" content="Haoran (Jensen) Yuan — PhD student in Computer Engineering at UIUC working on visuo-tactile world models for robot manipulation and efficient LLM inference.">
+  <meta property="og:title" content="Haoran (Jensen) Yuan">
+  <meta property="og:description" content="PhD student at UIUC · World models for dexterous manipulation · Speculative decoding">
+  <meta property="og:image" content="https://haorany7.github.io/images/dextacwam.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2328;
+      --muted: #59636e;
+      --link: #1a5fb4;
+      --accent: #c2410c;
+      --card: #f6f8fa;
+      --border: #e5e7eb;
+      --hl: #fff7e6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --fg: #e6e6e6;
+        --muted: #9aa4ae;
+        --link: #6cb6ff;
+        --accent: #fb923c;
+        --card: #171a21;
+        --border: #262b33;
+        --hl: #1d1a12;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 15.5px/1.6 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    main { max-width: 880px; margin: 0 auto; padding: 48px 16px 64px; }
+
+    /* ---------- header ---------- */
+    .intro { display: flex; gap: 40px; align-items: center; }
+    .intro-text { flex: 1; }
+    h1 { font-size: 32px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+    .subtitle { color: var(--muted); margin: 0 0 16px; }
+    .intro p { margin: 0 0 12px; }
+    .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-weight: 500; }
+    .avatar {
+      width: 200px; height: 200px; flex-shrink: 0;
+      border-radius: 50%; object-fit: cover;
+      background: var(--card); border: 1px solid var(--border);
+    }
+    .avatar-fallback {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; font-weight: 700; color: var(--muted);
+    }
+
+    /* ---------- sections ---------- */
+    h2 {
+      font-size: 22px; font-weight: 700; margin: 48px 0 8px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+    .note { color: var(--muted); font-size: 13.5px; margin: 0 0 12px; }
+    ul.news { padding-left: 18px; margin: 8px 0 0; }
+    ul.news li { margin: 4px 0; }
+    .date { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 6px; }
+
+    /* ---------- papers ---------- */
+    .paper {
+      display: flex; gap: 24px; padding: 18px 12px; margin: 0 -12px;
+      border-radius: 10px;
+    }
+    .paper.lead { background: var(--hl); }
+    .thumb {
+      width: 240px; flex-shrink: 0; aspect-ratio: 16 / 9;
+      border-radius: 8px; overflow: hidden;
+      background: #fff; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .thumb.text {
+      background: linear-gradient(135deg, #1e3a8a, #0e7490);
+      color: #fff; font-weight: 700; font-size: 26px; letter-spacing: 0.02em;
+      border: none;
+    }
+    .paper-body { flex: 1; min-width: 0; }
+    .paper-title { font-weight: 600; font-size: 16px; line-height: 1.4; }
+    .authors { margin: 4px 0 2px; font-size: 14.5px; }
+    .authors .me { font-weight: 700; }
+    .venue { font-style: italic; font-size: 14.5px; }
+    .role {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      color: var(--accent); border: 1px solid currentColor;
+      border-radius: 999px; padding: 0 8px; margin-left: 6px; font-style: normal;
+      vertical-align: 1px;
+    }
+    .paper-links { margin: 4px 0 6px; font-size: 14.5px; }
+    .paper-links a + a::before { content: " / "; color: var(--muted); }
+    .paper-desc { margin: 0; font-size: 14.5px; color: var(--muted); }
+
+    /* ---------- experience ---------- */
+    .exp { display: flex; justify-content: space-between; gap: 16px; margin: 10px 0; }
+    .exp .what { font-weight: 600; }
+    .exp .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    footer { margin-top: 56px; color: var(--muted); font-size: 13px; text-align: center; }
+
+    @media (max-width: 640px) {
+      main { padding-top: 32px; }
+      .intro { flex-direction: column-reverse; gap: 20px; text-align: center; }
+      .links { justify-content: center; }
+      .avatar { width: 150px; height: 150px; }
+      .paper { flex-direction: column; gap: 12px; }
+      .thumb { width: 100%; }
+      .exp { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- ================= INTRO ================= -->
+  <section class="intro">
+    <div class="intro-text">
+      <h1>Haoran (Jensen) Yuan</h1>
+      <p class="subtitle">PhD Student · Computer Engineering · University of Illinois Urbana-Champaign</p>
+      <p>
+        I work on <b>world models for robot manipulation</b> and <b>efficient LLM inference</b>.
+        On the robotics side, I build visuo-tactile world-action models that let robots reason about
+        contact that cameras cannot see. On the systems side, I work on parallel drafting methods
+        that push speculative decoding past its scaling ceiling.
+      </p>
+      <p>
+        I have worked with <a href="https://plan-lab.github.io/">PLAN Lab</a> at UIUC,
+        <a href="https://bair.berkeley.edu/">BAIR</a> at UC Berkeley, and
+        <a href="https://haoailab.com/">Hao AI Lab</a> at UC San Diego.
+        Before my PhD, I received an M.S. in Computer Engineering from UIUC, a dual B.S. from UIUC and
+        Zhejiang University, and interned as a software engineer at Snowflake.
+      </p>
+      <div class="links">
+        <a href="mailto:haorany3425@gmail.com">Email</a>
+        <a href="cv.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=PzdigUMAAAAJ">Google Scholar</a>
+        <a href="https://github.com/haorany7">GitHub</a>
+        <a href="https://x.com/Jensen_Yuan">X / Twitter</a>
+        <a href="https://www.linkedin.com/in/haoran-yuan-b1795b263/">LinkedIn</a>
+      </div>
+    </div>
+    <!-- Replace with <img class="avatar" src="images/profile.jpg" alt="Haoran Yuan"> once a photo is added -->
+    <div class="avatar avatar-fallback" aria-hidden="true">HY</div>
+  </section>
+
+  <!-- ================= NEWS ================= -->
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="date">Oct 2026</span> <a href="https://arxiv.org/abs/2610.19792">JetSpec++</a> released on arXiv.</li>
+    <li><span class="date">Sep 2026</span> <a href="https://dextacwam.github.io/">DexTacWAM</a> released and featured by <a href="https://x.com/berkeley_ai/status/2105012861449748736">BAIR</a>.</li>
+    <li><span class="date">Aug 2026</span> Started my PhD in Computer Engineering at UIUC.</li>
+    <li><span class="date">Jun 2026</span> <a href="https://jetspec-project.github.io/jetspec-web/">JetSpec</a> released on arXiv.</li>
+    <li><span class="date">Mar 2026</span> <a href="https://plan-lab.github.io/projects/vtam/">VTAM</a> released on arXiv.</li>
+  </ul>
+
+  <!-- ================= RESEARCH ================= -->
+  <h2>Research</h2>
+  <p class="note">* equal contribution &nbsp;·&nbsp; ‡ project lead &nbsp;·&nbsp; highlighted papers are projects I led</p>
+
+  <div class="paper">
+    <a class="thumb text" href="https://arxiv.org/abs/2610.19792">JetSpec++</a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://arxiv.org/abs/2610.19792">JetSpec++: Foresight Parallel Drafting with Self Refinements</a>
+      <div class="authors">Zhaoxiang Feng*, Lanxiang Hu*, <span class="me">Haoran Yuan</span>, Yu-Yang Qian, Jihui Yang, Peng Zhao, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
+      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2610.19792">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a>
+      </div>
+      <p class="paper-desc">Conditions each drafted token on its full branch history and pre-drafts the next block during verification. Up to 7.45× faster than autoregressive decoding and 1.54× faster than DSpark on Qwen3-8B.</p>
+    </div>
+  </div>
+
+  <div class="paper lead">
+    <a class="thumb" href="https://dextacwam.github.io/"><img src="images/dextacwam.png" alt="DexTacWAM teaser" loading="lazy"></a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://dextacwam.github.io/">DexTacWAM: A Visuo-Tactile World-Action Model for Dexterous Manipulation</a>
+      <div class="authors"><span class="me">Haoran Yuan</span>‡, Zekai Wang, Boning Shao, Haoran Lu, Trevor Darrell, Ismini Lourentzou, Wei Zhan</div>
+      <div class="venue">arXiv, 2026 <span class="role">Project Lead</span></div>
+      <div class="paper-links">
+        <a href="https://dextacwam.github.io/">project page</a><a href="https://arxiv.org/abs/2609.24976">paper</a><a href="https://github.com/dextacwam/DexTacWAM">code</a><a href="https://huggingface.co/collections/JensenYuan/dextacwam-6aba3aa25d3362d882cdefbc">models &amp; data</a>
+      </div>
+      <p class="paper-desc">Extends a video diffusion world model with fingertip touch on a 22-DoF bimanual robot so it can predict contact the cameras cannot see. Reaches 70.6% average success on six real-robot tasks, against 38.0% for the strongest baseline.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <a class="thumb" href="https://jetspec-project.github.io/jetspec-web/"><img src="images/jetspec.png" alt="JetSpec causal draft head" loading="lazy"></a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://jetspec-project.github.io/jetspec-web/">JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting</a>
+      <div class="authors">Lanxiang Hu, Zhaoxiang Feng, Yulun Wu, <span class="me">Haoran Yuan</span>, Yujie Zhao, Yu-Yang Qian, Bojun Wang, Peng Zhao, Daxin Jiang, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
+      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
+      <div class="paper-links">
+        <a href="https://jetspec-project.github.io/jetspec-web/">project page</a><a href="https://arxiv.org/abs/2606.18394">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a><a href="https://huggingface.co/JetSpec">models</a>
+      </div>
+      <p class="paper-desc">A causal draft head that emits a full speculative tree in one forward pass while keeping the target model's autoregressive factorization along every branch. Up to 9.64× end-to-end speedup on Qwen3-8B (MATH-500).</p>
+    </div>
+  </div>
+
+  <div class="paper lead">
+    <a class="thumb" href="https://plan-lab.github.io/projects/vtam/"><img src="images/vtam.png" alt="VTAM method overview" loading="lazy"></a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://plan-lab.github.io/projects/vtam/">VTAM: Video-Tactile-Action Models for Complex Physical Interaction Beyond VLAs</a>
+      <div class="authors"><span class="me">Haoran Yuan</span>*‡, Weigang Yi*, Zhenyu Zhang*, Wendi Chen*, Yuchen Mo, Jiashi Yin, Xinzhuo Li, Xiangyu Zeng, Chuan Wen, Cewu Lu, Katherine Driggs-Campbell, Ismini Lourentzou</div>
+      <div class="venue">arXiv, 2026 <span class="role">Project Lead</span></div>
+      <div class="paper-links">
+        <a href="https://plan-lab.github.io/projects/vtam/">project page</a><a href="https://arxiv.org/abs/2603.23481">paper</a>
+      </div>
+      <p class="paper-desc">Adds tactile streams to a pretrained video transformer through lightweight modality-transfer fine-tuning, with a tactile regularization loss that keeps vision from dominating. Reaches 90% average success on contact-rich tasks such as chip pick-and-place and cucumber peeling.</p>
+    </div>
+  </div>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <h2>Experience</h2>
+  <div class="exp">
+    <div><span class="what">Snowflake</span> — Software Engineering Intern, Menlo Park, CA<br>
+      <span class="note">Built a predictive autoscaler for GS clusters (14.3% MAPE on 24-hour CPU forecasts, average CPU utilization up by more than 20%).</span></div>
+    <div class="when">May – Aug 2025</div>
+  </div>
+
+  <!-- ================= EDUCATION ================= -->
+  <h2>Education</h2>
+  <div class="exp">
+    <div><span class="what">University of Illinois Urbana-Champaign</span> — Ph.D. in Computer Engineering</div>
+    <div class="when">2026 – present</div>
+  </div>
+  <div class="exp">
+    <div><span class="what">University of Illinois Urbana-Champaign</span> — M.S. in Computer Engineering</div>
+    <div class="when">2024 – 2026</div>
+  </div>
+  <div class="exp">
+    <div><span class="what">University of Illinois Urbana-Champaign</span> — B.S. in Electrical Engineering, Minor in CS</div>
+    <div class="when">2020 – 2024</div>
+  </div>
+  <div class="exp">
+    <div><span class="what">Zhejiang University</span> — B.Eng. in Computer Engineering</div>
+    <div class="when">2020 – 2024</div>
+  </div>
+
+  <footer>Last updated October 2026</footer>
+</main>
+</body>
+</html>
