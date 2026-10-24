@@ -48,12 +48,16 @@
     main { max-width: 880px; margin: 0 auto; padding: 48px 16px 64px; }
 
     /* ---------- header ---------- */
-    .intro { display: flex; gap: 40px; align-items: center; }
+    .intro { display: flex; gap: 48px; align-items: flex-start; }
     .intro-text { flex: 1; }
     h1 { font-size: 32px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
     .subtitle { color: var(--muted); margin: 0 0 16px; }
     .intro p { margin: 0 0 12px; }
-    .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-weight: 500; }
+    .profile { width: 220px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+    .links { list-style: none; margin: 18px 0 0; padding: 0; font-size: 14.5px; }
+    .links li { margin: 5px 0; }
+    .links a { display: inline-flex; align-items: center; gap: 9px; }
+    .links svg { width: 17px; height: 17px; flex-shrink: 0; color: var(--fg); }
     .avatar {
       width: 200px; height: 200px; flex-shrink: 0;
       border-radius: 50%; object-fit: cover;
@@ -124,8 +128,10 @@
 
     @media (max-width: 640px) {
       main { padding-top: 32px; }
-      .intro { flex-direction: column-reverse; gap: 20px; text-align: center; }
-      .links { justify-content: center; }
+      .intro { flex-direction: column-reverse; align-items: center; gap: 20px; }
+      .profile { width: 100%; }
+      .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; margin-top: 14px; }
+      .links li { margin: 0; }
       .avatar { width: 150px; height: 150px; }
       .paper { flex-direction: column; gap: 12px; }
       .thumb { width: 100%; }
@@ -154,22 +160,23 @@
       <p>
         I am a PhD student in <a href="https://plan-lab.github.io/">PLAN Lab</a> at UIUC, advised by
         <a href="https://isminoula.github.io/">Prof. Ismini Lourentzou</a>. I have also worked with
-        <a href="https://bair.berkeley.edu/">BAIR</a> at UC Berkeley,
-        <a href="https://haoailab.com/">Hao AI Lab</a> at UC San Diego, and
-        <a href="https://www.mvig.org/">MVIG</a> at Shanghai Jiao Tong University.
+        <a href="https://bair.berkeley.edu/">BAIR</a> at UC Berkeley and
+        <a href="https://haoailab.com/">Hao AI Lab</a> at UC San Diego.
         Before my PhD, I received an M.S. in Computer Engineering from UIUC, a dual B.S. from UIUC and
         Zhejiang University, and interned as a software engineer at <a href="https://www.snowflake.com/">Snowflake</a>.
       </p>
-      <div class="links">
-        <a href="mailto:haorany3425@gmail.com">Email</a>
-        <a href="cv.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?user=PzdigUMAAAAJ">Google Scholar</a>
-        <a href="https://github.com/haorany7">GitHub</a>
-        <a href="https://x.com/Jensen_Yuan">X / Twitter</a>
-        <a href="https://www.linkedin.com/in/haoran-yuan-b1795b263/">LinkedIn</a>
-      </div>
     </div>
-    <img class="avatar" src="images/profile.jpg" alt="Haoran (Jensen) Yuan">
+    <div class="profile">
+      <img class="avatar" src="images/profile.jpg" alt="Haoran (Jensen) Yuan">
+      <ul class="links">
+        <li><a href="mailto:haorany3425@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>haorany3425@gmail.com</a></li>
+        <li><a href="cv.pdf"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>CV (PDF)</a></li>
+        <li><a href="https://scholar.google.com/citations?user=PzdigUMAAAAJ"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>Google Scholar</a></li>
+        <li><a href="https://github.com/haorany7"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>haorany7</a></li>
+        <li><a href="https://x.com/Jensen_Yuan"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>@Jensen_Yuan</a></li>
+        <li><a href="https://www.linkedin.com/in/haoran-yuan-b1795b263/"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>haoran-yuan</a></li>
+      </ul>
+    </div>
   </section>
 
   <!-- ================= NEWS ================= -->
@@ -186,19 +193,6 @@
   <h2>Research</h2>
   <p class="note">* equal contribution &nbsp;·&nbsp; ‡ project lead &nbsp;·&nbsp; highlighted papers are projects I led</p>
 
-  <div class="paper">
-    <a class="thumb text" href="https://arxiv.org/abs/2610.19792">JetSpec++</a>
-    <div class="paper-body">
-      <a class="paper-title" href="https://arxiv.org/abs/2610.19792">JetSpec++: Foresight Parallel Drafting with Self Refinements</a>
-      <div class="authors">Zhaoxiang Feng*, Lanxiang Hu*, <span class="me">Haoran Yuan</span>, Yu-Yang Qian, Jihui Yang, Peng Zhao, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
-      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
-      <div class="paper-links">
-        <a href="https://arxiv.org/abs/2610.19792">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a>
-      </div>
-      <p class="paper-desc">Conditions each drafted token on its full branch history and pre-drafts the next block during verification. Up to 7.45× faster than autoregressive decoding and 1.54× faster than DSpark on Qwen3-8B.</p>
-    </div>
-  </div>
-
   <div class="paper lead">
     <a class="thumb" href="https://dextacwam.github.io/"><img src="images/dextacwam.png" alt="DexTacWAM teaser" loading="lazy"></a>
     <div class="paper-body">
@@ -212,19 +206,6 @@
     </div>
   </div>
 
-  <div class="paper">
-    <a class="thumb" href="https://jetspec-project.github.io/jetspec-web/"><img src="images/jetspec.png" alt="JetSpec causal draft head" loading="lazy"></a>
-    <div class="paper-body">
-      <a class="paper-title" href="https://jetspec-project.github.io/jetspec-web/">JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting</a>
-      <div class="authors">Lanxiang Hu, Zhaoxiang Feng, Yulun Wu, <span class="me">Haoran Yuan</span>, Yujie Zhao, Yu-Yang Qian, Bojun Wang, Peng Zhao, Daxin Jiang, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
-      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
-      <div class="paper-links">
-        <a href="https://jetspec-project.github.io/jetspec-web/">project page</a><a href="https://arxiv.org/abs/2606.18394">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a><a href="https://huggingface.co/JetSpec">models</a>
-      </div>
-      <p class="paper-desc">A causal draft head that emits a full speculative tree in one forward pass while keeping the target model's autoregressive factorization along every branch. Up to 9.64× end-to-end speedup on Qwen3-8B (MATH-500).</p>
-    </div>
-  </div>
-
   <div class="paper lead">
     <a class="thumb" href="https://plan-lab.github.io/projects/vtam/"><img src="images/vtam.png" alt="VTAM method overview" loading="lazy"></a>
     <div class="paper-body">
@@ -235,6 +216,32 @@
         <a href="https://plan-lab.github.io/projects/vtam/">project page</a><a href="https://arxiv.org/abs/2603.23481">paper</a>
       </div>
       <p class="paper-desc">Adds tactile streams to a pretrained video transformer through lightweight modality-transfer fine-tuning, with a tactile regularization loss that keeps vision from dominating. Reaches 90% average success on contact-rich tasks such as chip pick-and-place and cucumber peeling.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <a class="thumb text" href="https://arxiv.org/abs/2610.19792">JetSpec++</a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://arxiv.org/abs/2610.19792">JetSpec++: Foresight Parallel Drafting with Self Refinements</a>
+      <div class="authors">Zhaoxiang Feng*, Lanxiang Hu*, <span class="me">Haoran Yuan</span>, Yu-Yang Qian, Jihui Yang, Peng Zhao, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
+      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2610.19792">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a>
+      </div>
+      <p class="paper-desc">Conditions each drafted token on its full branch history and pre-drafts the next block during verification. Up to 7.45× faster than autoregressive decoding and 1.54× faster than DSpark on Qwen3-8B.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <a class="thumb" href="https://jetspec-project.github.io/jetspec-web/"><img src="images/jetspec.png" alt="JetSpec causal draft head" loading="lazy"></a>
+    <div class="paper-body">
+      <a class="paper-title" href="https://jetspec-project.github.io/jetspec-web/">JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting</a>
+      <div class="authors">Lanxiang Hu, Zhaoxiang Feng, Yulun Wu, <span class="me">Haoran Yuan</span>, Yujie Zhao, Yu-Yang Qian, Bojun Wang, Peng Zhao, Daxin Jiang, Yibo Zhu, Tajana Rosing, Hao Zhang</div>
+      <div class="venue">arXiv, 2026 <span class="role">Core Contributor</span></div>
+      <div class="paper-links">
+        <a href="https://jetspec-project.github.io/jetspec-web/">project page</a><a href="https://arxiv.org/abs/2606.18394">paper</a><a href="https://github.com/hao-ai-lab/JetSpec">code</a><a href="https://huggingface.co/JetSpec">models</a>
+      </div>
+      <p class="paper-desc">A causal draft head that emits a full speculative tree in one forward pass while keeping the target model's autoregressive factorization along every branch. Up to 9.64× end-to-end speedup on Qwen3-8B (MATH-500).</p>
     </div>
   </div>
 
@@ -269,15 +276,6 @@
   </div>
 
   <div class="org">
-    <div class="org-logo"><img src="images/logos/sjtu.png" alt="Shanghai Jiao Tong University"></div>
-    <div>
-      <div class="org-name"><a href="https://www.mvig.org/">MVIG</a>, Shanghai Jiao Tong University</div>
-      <div class="org-role">Research Collaborator (VTAM)</div>
-      <div class="org-meta">Shanghai, China · Collaborators: <a href="https://www.mvig.org/">Cewu Lu</a> and <a href="https://alvinwen428.github.io/">Chuan Wen</a></div>
-    </div>
-  </div>
-
-  <div class="org">
     <div class="org-logo wide"><img src="images/logos/snowflake.svg" alt="Snowflake"></div>
     <div>
       <div class="org-name"><a href="https://www.snowflake.com/">Snowflake</a></div>
@@ -298,7 +296,7 @@
       <div class="org-role">M.S. in Computer Engineering</div>
       <div class="org-meta"><span class="when">2024.09 ~ 2026.05</span></div>
       <div class="org-role">B.S. in Electrical Engineering, Minor in Computer Science</div>
-      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span> · GPA 3.83/4.0</div>
+      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span></div>
     </div>
   </div>
 
@@ -307,7 +305,7 @@
     <div>
       <div class="org-name">Zhejiang University</div>
       <div class="org-role">B.Eng. in Computer Engineering (ZJU-UIUC dual degree)</div>
-      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span> · Hangzhou, China · GPA 3.96/4.0</div>
+      <div class="org-meta"><span class="when">2020.09 ~ 2024.06</span> · Hangzhou, China</div>
     </div>
   </div>
 
