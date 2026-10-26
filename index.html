@@ -124,27 +124,6 @@
     .org-meta { color: var(--muted); font-size: 14px; }
     .org-meta .when { font-variant-numeric: tabular-nums; }
 
-    .posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
-    .post {
-      display: flex; align-items: center; gap: 12px; padding: 10px;
-      border: 1px solid var(--border); border-radius: 10px; color: var(--fg);
-    }
-    .post:hover { text-decoration: none; border-color: var(--link); }
-    .post img {
-      width: 72px; height: 48px; flex-shrink: 0; object-fit: cover;
-      border-radius: 6px; background: #fff; border: 1px solid var(--border);
-    }
-    .post-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-    .post-src { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); }
-    .post-src b { color: var(--fg); font-weight: 600; }
-    .x-logo { width: 12px; height: 12px; flex-shrink: 0; }
-    .post-title {
-      font-size: 14px; line-height: 1.35;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .post-arrow { color: var(--muted); font-size: 14px; }
-    .post:hover .post-arrow { color: var(--link); }
-
     footer { margin-top: 56px; color: var(--muted); font-size: 13px; text-align: center; }
 
     @media (max-width: 640px) {
@@ -211,26 +190,6 @@
     <li><span class="date">Jun 2026</span> <a href="https://jetspec-project.github.io/jetspec-web/">JetSpec</a> released on arXiv and featured by <a href="https://x.com/haoailab/status/2070225035403694408">Hao AI Lab</a>.</li>
     <li><span class="date">Mar 2026</span> <a href="https://plan-lab.github.io/projects/vtam/">VTAM</a> released on arXiv.</li>
   </ul>
-
-  <!-- ================= FEATURED POSTS ================= -->
-  <div class="posts">
-    <a class="post" href="https://x.com/berkeley_ai/status/2105012861449748736">
-      <img src="images/dextacwam.png" alt="" loading="lazy">
-      <span class="post-text">
-        <span class="post-src"><svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg> Featured by <b>BAIR</b> · Sep 2026</span>
-        <span class="post-title">DexTacWAM: visuo-tactile world-action model for dexterous manipulation</span>
-      </span>
-      <span class="post-arrow" aria-hidden="true">↗</span>
-    </a>
-    <a class="post" href="https://x.com/haoailab/status/2070225035403694408">
-      <img src="images/jetspec.png" alt="" loading="lazy">
-      <span class="post-text">
-        <span class="post-src"><svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg> Featured by <b>Hao AI Lab</b> · Jun 2026</span>
-        <span class="post-title">JetSpec: lossless parallel tree drafting for speculative decoding</span>
-      </span>
-      <span class="post-arrow" aria-hidden="true">↗</span>
-    </a>
-  </div>
 
   <!-- ================= RESEARCH ================= -->
   <h2>Research</h2>
