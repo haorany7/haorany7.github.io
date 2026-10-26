@@ -124,6 +124,15 @@
     .org-meta { color: var(--muted); font-size: 14px; }
     .org-meta .when { font-variant-numeric: tabular-nums; }
 
+    .posts {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+      align-items: start; margin-top: 16px;
+    }
+    .posts .twitter-tweet { margin: 0 !important; }
+    blockquote.twitter-tweet {
+      border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 14px;
+    }
+
     footer { margin-top: 56px; color: var(--muted); font-size: 13px; text-align: center; }
 
     @media (max-width: 640px) {
@@ -135,6 +144,7 @@
       .avatar { width: 150px; height: 150px; }
       .paper { flex-direction: column; gap: 12px; }
       .thumb { width: 100%; }
+      .posts { grid-template-columns: 1fr; }
       .org { gap: 16px; }
       .org-logo { width: 64px; }
       .org-logo img { max-width: 64px; }
@@ -186,9 +196,19 @@
     <li><span class="date">Oct 2026</span> <a href="https://arxiv.org/abs/2610.19792">JetSpec++</a> released on arXiv.</li>
     <li><span class="date">Sep 2026</span> <a href="https://dextacwam.github.io/">DexTacWAM</a> released and featured by <a href="https://x.com/berkeley_ai/status/2105012861449748736">BAIR</a>.</li>
     <li><span class="date">Aug 2026</span> Started my PhD in Computer Engineering at UIUC.</li>
-    <li><span class="date">Jun 2026</span> <a href="https://jetspec-project.github.io/jetspec-web/">JetSpec</a> released on arXiv.</li>
+    <li><span class="date">Jun 2026</span> <a href="https://jetspec-project.github.io/jetspec-web/">JetSpec</a> released on arXiv and featured by <a href="https://x.com/haoailab/status/2070225035403694408">Hao AI Lab</a>.</li>
     <li><span class="date">Mar 2026</span> <a href="https://plan-lab.github.io/projects/vtam/">VTAM</a> released on arXiv.</li>
   </ul>
+
+  <!-- ================= FEATURED POSTS ================= -->
+  <div class="posts">
+    <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none">
+      <a href="https://x.com/berkeley_ai/status/2105012861449748736">BAIR on DexTacWAM</a>
+    </blockquote>
+    <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none">
+      <a href="https://x.com/haoailab/status/2070225035403694408">Hao AI Lab on JetSpec</a>
+    </blockquote>
+  </div>
 
   <!-- ================= RESEARCH ================= -->
   <h2>Research</h2>
@@ -312,5 +332,12 @@
 
   <footer>Last updated October 2026</footer>
 </main>
+<script>
+  // Match the embedded X posts to the page's light/dark theme, then load X's widget script.
+  if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.querySelectorAll('.twitter-tweet').forEach(function (el) { el.setAttribute('data-theme', 'dark'); });
+  }
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
